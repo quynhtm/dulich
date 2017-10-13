@@ -52,7 +52,7 @@
                             <th width="8%" class="text-center">Ảnh</th>
                             <th width="435">Tên bài viết</th>
                             <th width="18%">Danh mục tin</th>
-                            <th width="18%">Thuộc khoa - trung tâm</th>
+                            {{--<th width="18%">Thuộc khoa - trung tâm</th>--}}
                             <th width="8%" class="text-center">Trạng thái</th>
                             <th width="10%" class="text-center">Thao tác</th>
                         </tr>
@@ -73,7 +73,7 @@
                                     @if(isset($arrCategoryNew[$item['news_category_id']])){{ $arrCategoryNew[$item['news_category_id']] }}@else --- @endif
                                     @if(isset($arrTypeNew[$item['news_type']]))<br/><i class="red">{{ $arrTypeNew[$item['news_type']] }}</i>@endif
                                 </td>
-                                <td>@if(isset($arrDepart[$item['news_depart_id']])){{ $arrDepart[$item['news_depart_id']] }}@else --- @endif</td>
+                                {{--<td>@if(isset($arrDepart[$item['news_depart_id']])){{ $arrDepart[$item['news_depart_id']] }}@else --- @endif</td>--}}
                                 <td class="text-center">
                                     @if($item['news_status'] == 1)
                                         <a href="javascript:void(0);" onclick="Admin.updateStatusItem({{$item['news_id']}},{{$item['news_status']}},5)"title="Hiện"><i class="fa fa-check fa-2x"></i></a>

@@ -76,12 +76,10 @@ class BaseAdminController extends BaseController
             'name'=>'QL Danh mục',
             'link'=>'javascript:void(0)',
             'icon'=>'fa fa-gift',
-            'arr_link_sub'=>array('admin.department_list','admin.category_list','admin.tabView','admin.tabSubView',),
+            'arr_link_sub'=>array('admin.newsView','admin.category_list'),
             'sub'=>array(
-                //array('name'=>'Khoa - Trung tâm', 'RouteName'=>'admin.department_list', 'icon'=>'fa fa-users icon-4x', 'showcontent'=>1, 'showMenu'=>1,'permission'=>'department_full'),
                 array('name'=>'Danh mục tin', 'RouteName'=>'admin.category_list', 'icon'=>'fa fa-indent icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'category_full'),
-                array('name'=>'Tab tuyển sinh-đào tạo', 'RouteName'=>'admin.tabView', 'icon'=>'fa fa-indent icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'tab_full'),
-               // array('name'=>'Tab sub tuyển sinh-đào tạo', 'RouteName'=>'admin.tabSubView', 'icon'=>'fa fa-indent icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'tab_full'),
+                array('name'=>'Tin tức', 'RouteName'=>'admin.newsView', 'icon'=>'fa fa-book icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'news_full'),
             ),
         );
 
@@ -89,10 +87,9 @@ class BaseAdminController extends BaseController
             'name'=>'QL nội dung',
             'link'=>'javascript:void(0)',
             'icon'=>'fa fa-book',
-            'arr_link_sub'=>array('admin.newsView','admin.eventView','admin.bannerView','admin.videoView','admin.libraryImageView',),
+            'arr_link_sub'=>array('admin.eventView','admin.bannerView','admin.videoView','admin.libraryImageView',),
             'sub'=>array(
-                array('name'=>'Tin tức', 'RouteName'=>'admin.newsView', 'icon'=>'fa fa-book icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'news_full'),
-                array('name'=>'Danh sách sự kiện', 'RouteName'=>'admin.eventView', 'icon'=>'fa fa-book icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'event_full'),
+                /*array('name'=>'Danh sách sự kiện', 'RouteName'=>'admin.eventView', 'icon'=>'fa fa-book icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'event_full'),*/
                 array('name'=>'Banner quảng cáo', 'RouteName'=>'admin.bannerView', 'icon'=>'fa fa-globe icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'banner_full'),
                 array('name'=>'Thư viện ảnh', 'RouteName'=>'admin.libraryImageView', 'icon'=>'fa fa-picture-o icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'libraryImage_full'),
                 array('name'=>'Video', 'RouteName'=>'admin.videoView', 'icon'=>'fa fa-video-camera icon-4x', 'showcontent'=>1,'showMenu'=>1, 'permission'=>'video_full'),

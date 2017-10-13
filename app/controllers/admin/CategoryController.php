@@ -99,7 +99,7 @@ class CategoryController extends BaseAdminController
             //FunctionLib::debug($data);
         }
 
-        $optionStatus = FunctionLib::getOption($this->arrStatus, isset($data['category_status'])? $data['category_status'] : -1);
+        $optionStatus = FunctionLib::getOption($this->arrStatus, isset($data['category_status'])? $data['category_status'] : CGlobal::status_show);
         $category_depart_id = isset($data['category_depart_id'])? $data['category_depart_id'] : 0;
         $category = Category::buildOptionCategoryNew($category_depart_id);
         //FunctionLib::debug($category);

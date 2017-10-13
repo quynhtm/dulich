@@ -33,7 +33,7 @@
                 </div>
 
                 <div style="float: left;width: 30%">
-                    <div class="clearfix"></div>
+                    <!--<div class="clearfix"></div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="name" class="control-label">Thuộc khoa - trung tâm<span class="red"> (*) </span></label>
@@ -43,7 +43,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="clearfix"></div>
                     <div class="col-sm-12">
@@ -57,6 +57,7 @@
                         </div>
                     </div>
 
+                    <!--
                     <div class="clearfix"></div>
                     <div class="col-sm-12">
                         <div class="form-group">
@@ -67,7 +68,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="clearfix"></div>
                     <div class="col-sm-6">
@@ -168,10 +169,10 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="name" class="control-label">Mô tả ngắn</label>
-                        <textarea class="form-control input-sm" rows="8" name="news_desc_sort">@if(isset($data['news_desc_sort'])){{$data['news_desc_sort']}}@endif</textarea>
+                        <textarea class="form-control input-sm" name="news_desc_sort">@if(isset($data['news_desc_sort'])){{$data['news_desc_sort']}}@endif</textarea>
                     </div>
                 </div>
-                <div class="clearfix"></div>
+                <!--<div class="clearfix"></div>
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="control-label">Files upload</label>
@@ -187,7 +188,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
+
                 <div class="clearfix"></div>
                 <div class="col-sm-12">
                     <div class="form-group">
@@ -291,6 +293,7 @@
 <!--Popup Upload File-->
 <script>
     CKEDITOR.replace('news_content', {height:800});
+    CKEDITOR.replace('news_desc_sort', {height:200});
     /*CKEDITOR.replace(
             'news_content',
             {

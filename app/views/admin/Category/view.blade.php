@@ -20,12 +20,12 @@
                             <label for="category_name">Tên danh mục</label>
                             <input type="text" class="form-control input-sm" id="category_name" name="category_name" placeholder="Tên danh mục" @if(isset($search['category_name']) && $search['category_name'] != '')value="{{$search['category_name']}}"@endif>
                         </div>
-                        <div class="form-group col-lg-3">
-                            <label for="category_content_front">Thuộc khoa - trung tâm</label>
-                            <select name="category_depart_id" id="category_depart_id" class="form-control input-sm">
-                                {{$optionCategoryDepart}}
-                            </select>
-                        </div>
+                        {{--<div class="form-group col-lg-3">--}}
+                            {{--<label for="category_content_front">Thuộc khoa - trung tâm</label>--}}
+                            {{--<select name="category_depart_id" id="category_depart_id" class="form-control input-sm">--}}
+                                {{--{{$optionCategoryDepart}}--}}
+                            {{--</select>--}}
+                        {{--</div>--}}
                         <div class="form-group col-lg-3">
                             <label for="category_status">Trạng thái</label>
                             <select name="category_status" id="category_status" class="form-control input-sm">
@@ -56,30 +56,25 @@
                         <thead class="thin-border-bottom">
                         <tr class="">
                             <th width="2%"class="text-center">STT</th>
-                            <th width="8%"class="text-center">Ảnh</th>
+                            {{--<th width="8%"class="text-center">Ảnh</th>--}}
                             <!--<th width="1%" class="text-center"><input type="checkbox" id="checkAll"/></th>-->
-                            <th width="40%" class="td_list">Tên danh mục</th>
-                            <th width="15%" class="td_list">Khoa - trung tâm</th>
+                            <th width="70%" class="td_list">Tên danh mục</th>
                             <th width="5%" class="text-center">Thứ tự</th>
 
                             <th width="5%" class="text-center">Show header</th>
-                            <th width="5%" class="text-center">Show trái</th>
-                            <th width="5%" class="text-center">Show phải</th>
-                            <th width="5%" class="text-center">Show center</th>
-
-                            <th width="15%" class="text-center">Action</th>
+                            <th width="10%" class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($data as $key => $item)
                             <tr>
                                 <td class="text-center">{{ $key+1 }}</td>
-                                <td class="text-center">
-                                    @if($item['category_image'] !='')
-                                    <img src="{{ ThumbImg::getImageThumb(CGlobal::FOLDER_CATEGORY, $item['category_id'], $item['category_image'], CGlobal::sizeImage_100, '', true, CGlobal::type_thumb_image_banner, false)}}" width="50" height="50">
-                                    @endif
-                                </td>
-                                <!--<td class="text-center"><input class="check" type="checkbox" name="checkItems[]" id="sys_checkItems" value="{{$item['category_id']}}"></td>-->
+                                {{--<td class="text-center">--}}
+                                    {{--@if($item['category_image'] !='')--}}
+                                    {{--<img src="{{ ThumbImg::getImageThumb(CGlobal::FOLDER_CATEGORY, $item['category_id'], $item['category_image'], CGlobal::sizeImage_100, '', true, CGlobal::type_thumb_image_banner, false)}}" width="50" height="50">--}}
+                                    {{--@endif--}}
+                                {{--</td>--}}
+
                                 <td>
                                    @if($is_boss)[<b>{{ $item['category_id'] }}</b>]@endif
                                        @if($item['category_parent_id']==0)
@@ -89,7 +84,7 @@
                                            {{$item['padding_left']}}<a target="_blank" @if($item['category_link'] != '')href="{{$item['category_link']}}" @else href="{{FunctionLib::buildLinkCategory($item['category_id'], $item['category_name'])}}" @endif >{{$item['category_name'] }}</a>
                                        @endif
                                 </td>
-                                <td>@if(isset($arrCategoryDepart[$item['category_depart_id']])){{$arrCategoryDepart[$item['category_depart_id']]}}@else --- @endif</td>
+
                                 <td class="text-center">{{$item['category_order']}}</td>
 
                                 <td class="text-center">
@@ -97,27 +92,6 @@
                                         <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_top']}},1)"title="Hiện"><i class="fa fa-check fa-2x"></i></a>
                                     @else
                                         <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_top']}},1)"style="color: red" title="Ẩn"><i class="fa fa-close fa-2x"></i></a>
-                                    @endif
-                                </td>
-                                <td class="text-center">
-                                    @if($item['category_show_left'] == CGlobal::status_show)
-                                        <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_left']}},2)"title="Hiện"><i class="fa fa-check fa-2x"></i></a>
-                                    @else
-                                        <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_left']}},2)"style="color: red" title="Ẩn"><i class="fa fa-close fa-2x"></i></a>
-                                    @endif
-                                </td>
-                                <td class="text-center">
-                                    @if($item['category_show_right'] == CGlobal::status_show)
-                                        <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_right']}},3)"title="Hiện"><i class="fa fa-check fa-2x"></i></a>
-                                    @else
-                                        <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_right']}},3)"style="color: red" title="Ẩn"><i class="fa fa-close fa-2x"></i></a>
-                                    @endif
-                                </td>
-                                <td class="text-center">
-                                    @if($item['category_show_center'] == CGlobal::status_show)
-                                        <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_center']}},4)"title="Hiện"><i class="fa fa-check fa-2x"></i></a>
-                                    @else
-                                        <a href="javascript:void(0);" onclick="Admin.updatePositionStatusItem({{$item['category_id']}},{{$item['category_show_center']}},4)"style="color: red" title="Ẩn"><i class="fa fa-close fa-2x"></i></a>
                                     @endif
                                 </td>
 
